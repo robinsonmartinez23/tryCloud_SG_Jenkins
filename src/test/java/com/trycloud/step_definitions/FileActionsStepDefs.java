@@ -31,10 +31,12 @@ public class FileActionsStepDefs {
          */
 
         filesPage.chooseAction(action);
+        BrowserUtil.waitFor(3);
     }
 
     @When("user click {string} sub-module on the left side")
     public void user_click_sub_module_on_the_left_side(String subModule) {
+        BrowserUtil.waitFor(3);
         filesPage.chooseSubModule(subModule);
     }
 
