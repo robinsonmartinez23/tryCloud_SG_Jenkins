@@ -1,4 +1,4 @@
-@us_07
+@reg
 Feature: As a user, I should be able to delete a file / folder.
 
   Background:

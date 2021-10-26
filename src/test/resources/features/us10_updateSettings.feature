@@ -1,4 +1,4 @@
-@us_10
+@reg
 Feature: As a user, I should be able to update settings.
 
   Background:

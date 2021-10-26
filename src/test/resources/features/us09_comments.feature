@@ -1,4 +1,4 @@
-@us_09
+@@reg
 Feature: As a user, I should be able to write comments to files/folders.
 
   Background:

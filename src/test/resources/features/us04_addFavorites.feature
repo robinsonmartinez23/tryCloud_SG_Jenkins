@@ -1,4 +1,4 @@
-@us_04
+@reg
 Feature: As a user, I should be able to access to Files module - Favorites button
 
   Background:
