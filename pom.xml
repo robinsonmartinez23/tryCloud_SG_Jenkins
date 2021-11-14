@@ -52,6 +52,7 @@
             <artifactId>reporting-plugin</artifactId>
             <version>5.3.0</version>
         </dependency>
+
         <!--If you want to get rid of SLF4J Failed to load message from the console -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -71,15 +72,25 @@
                 <version>3.0.0-M5</version>
                 <configuration>
 
+
+                    <!--The next 4 lines makes parallel happens-->
                     <testFailureIgnore>true</testFailureIgnore>
                     <runOrder>Alphabetical</runOrder>
                     <parallel>methods</parallel>
                     <useUnlimitedThreads>true</useUnlimitedThreads>
-                    <!--<threadCount>4</threadCount>
-                    <perCoreThreadCount>false</perCoreThreadCount>-->
+
+                    <!--The 2 next lines makes parallel without use 100% capabilities of 100
+                        it is necessary "comment o delete line above -->
+
+                    <!--4 threads per core-->
+                    <!--<threadCount>4</threadCount> -->
+
+                    <!--"false" means 4 threads no matter how many cores exist (only 4 threads)-->
+                    <!--<perCoreThreadCount>false</perCoreThreadCount>-->
+
                     <includes>
                         <include>**/*TestRunner.java</include>
-                        <!--                         <include>**/*FailedTestRunner.java</include>-->
+                        <!--<include>**/*FailedTestRunner.java</include>-->
                     </includes>
 
                 </configuration>

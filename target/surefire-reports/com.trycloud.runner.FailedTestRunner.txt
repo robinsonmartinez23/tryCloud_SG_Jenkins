@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.trycloud.runner.FailedTestRunner
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in com.trycloud.runner.FailedTestRunner
+com.trycloud.runner.FailedTestRunner.initializationError  Time elapsed: 0.015 s  <<< ERROR!
+io.cucumber.core.exception.CucumberException: Failed to parse 'target\rerun.txt'
+Caused by: java.nio.file.NoSuchFileException: target\rerun.txt
+

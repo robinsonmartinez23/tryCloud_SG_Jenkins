@@ -12,8 +12,8 @@ import java.net.URL;
 
 public class Driver {
 
-    // private static WebDriver obj ;   singleton
-     private  static InheritableThreadLocal<WebDriver> driverPool=new InheritableThreadLocal<>();   // parallel
+    // private static WebDriver obj ;   Singleton
+    private  static InheritableThreadLocal<WebDriver> driverPool=new InheritableThreadLocal<>();   // Parallel
 
     private Driver(){ }
 
@@ -23,10 +23,10 @@ public class Driver {
      */
     public static WebDriver getDriver(){
         // read the browser type you want to launch from properties file
-        //String browserName = ConfigReader.read("browser") ;
-        String browserName = System.getProperty("browser") != null ? browserName = System.getProperty("browser") : ConfigReader.read("browser");
+        //String browserName = ConfigReader.read("browser") ;  // Singleton
+        String browserName = System.getProperty("browser") != null ? browserName = System.getProperty("browser") : ConfigReader.read("browser"); // Parallel
 
-        // if(obj == null){   singleton
+        // if(obj == null){   Singleton
         if(driverPool.get() == null){ //PARALLEL
 
             // according to browser type set up driver correctly
@@ -34,11 +34,11 @@ public class Driver {
                 case "remote-chrome":
                     try {
                         // assign your grid server address
-                        String gridAddress = "54.235.53.73";
+                        String gridAddress = "54.235.53.73";  // My S.Grid server IP address in AWS
                         URL url = new URL("http://"+ gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
-                        driverPool.set(new RemoteWebDriver(url, desiredCapabilities));
+                        driverPool.set(new RemoteWebDriver(url,desiredCapabilities));
                         //driverPool.set(new RemoteWebDriver(new URL("http://0.0.0.0:4444/wd/hub"),desiredCapabilities));
 
                     } catch (Exception e) {
